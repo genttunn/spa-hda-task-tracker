@@ -2,17 +2,17 @@
    SPA imports this in Vue; HDA <link>s it from Flask static. */
 
 :root {
-  --bg: #0f1420;
-  --panel: #1a2130;
-  --panel-2: #222b3d;
-  --border: #2e3a52;
-  --text: #e6ecf5;
-  --muted: #8a97ad;
-  --accent: #5b8def;
-  --accent-2: #3a6fd8;
-  --danger: #e05555;
-  --ok: #3ecf8e;
-  --warn: #e0a63c;
+  --bg: #f4f6fb;
+  --panel: #ffffff;
+  --panel-2: #f0f3f9;
+  --border: #d9dfea;
+  --text: #1c2330;
+  --muted: #6b7688;
+  --accent: #2f6fed;
+  --accent-2: #2559c9;
+  --danger: #d64545;
+  --ok: #1f9d63;
+  --warn: #b9770a;
   --radius: 10px;
 }
 
@@ -49,6 +49,7 @@ body {
   border-radius: var(--radius);
   padding: 18px;
   margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(20, 30, 60, 0.06);
 }
 
 .task {
@@ -58,6 +59,7 @@ body {
   border-radius: var(--radius);
   padding: 14px 16px;
   margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(20, 30, 60, 0.06);
 }
 .task .body { flex: 1; min-width: 0; }
 .task h3 { margin: 0 0 4px; font-size: 16px; }
@@ -68,10 +70,10 @@ body {
   display: inline-block; font-size: 11px; font-weight: 700;
   padding: 3px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: .4px;
 }
-.badge.low     { background: #2b3446; color: var(--muted); }
-.badge.normal  { background: #223a5e; color: var(--accent); }
-.badge.high    { background: #4a3a1e; color: var(--warn); }
-.badge.urgent  { background: #4a2222; color: var(--danger); }
+.badge.low     { background: #eef1f6; color: var(--muted); }
+.badge.normal  { background: #e4edfd; color: var(--accent-2); }
+.badge.high    { background: #fdf0d8; color: var(--warn); }
+.badge.urgent  { background: #fbe1e1; color: var(--danger); }
 
 .status { font-size: 12px; color: var(--muted); }
 

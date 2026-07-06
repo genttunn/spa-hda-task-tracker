@@ -23,7 +23,7 @@ from werkzeug.security import check_password_hash
 from db import get_db, init_db
 from priority import priority_label
 
-app = Flask(__name__, static_folder="../frontend/static", static_url_path="/static")
+app = Flask(__name__)  # serves ./static (htmx.min.js, etc.) and ./templates
 app.config.update(
     SECRET_KEY="hda-demo-secret-not-for-production",
     SESSION_COOKIE_HTTPONLY=True,   # DEMO (issue 2): cookie is invisible to JavaScript
