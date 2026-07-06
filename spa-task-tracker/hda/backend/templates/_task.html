@@ -1,0 +1,40 @@
+{# A single task row. Returned on its own for htmx swaps (create / advance). #}
+<div class="task" id="task-{{ task.id }}">
+  {# DEMO (issue 5): the priority label is computed on the SERVER; only the result
+     reaches the browser. The scoring formula never ships to the client. #}
+  <span class="badge {{ priority_label(task) }}">{{ priority_label(task) }}</span>
+  <div class="body">
+    <h3>{{ task.title }}</h3>
+    {# DEMO (issue 1): render_desc() applies the current HDA_XSS_MODE
+       (escape / raw / sanitize). Default 'escape' makes this inert. #}
+    <div class="desc">{{ render_desc(task.description) }}</div>
+    <div class="meta">
+      <span class="status">status: {{ task.status }}</span>
+      <span>owner #{{ task.owner_id }}</span>
+      <span>assignee: {{ task.assignee_id if task.assignee_id is not none else '—' }}</span>
+      <span>created {{ task.created_at }}</span>
+    </div>
+  </div>
+  <div class="row" style="gap: 6px">
+    <button
+      class="secondary"
+      hx-post="/tasks/{{ task.id }}/advance"
+      hx-target="#task-{{ task.id }}"
+      hx-swap="outerHTML"
+    >
+      advance
+    </button>
+    {# DEMO (issue 4): shown only to admins — AND enforced server-side on POST. #}
+    {% if me and me.role == 'admin' %}
+    <button
+      class="danger"
+      hx-post="/tasks/{{ task.id }}/delete"
+      hx-target="#task-{{ task.id }}"
+      hx-swap="outerHTML"
+      hx-confirm="Delete this task?"
+    >
+      Delete
+    </button>
+    {% endif %}
+  </div>
+</div>

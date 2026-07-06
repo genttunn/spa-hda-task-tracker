@@ -1,0 +1,101 @@
+/* Shared styling for BOTH apps so SPA and HDA look alike.
+   SPA imports this in Vue; HDA <link>s it from Flask static. */
+
+:root {
+  --bg: #0f1420;
+  --panel: #1a2130;
+  --panel-2: #222b3d;
+  --border: #2e3a52;
+  --text: #e6ecf5;
+  --muted: #8a97ad;
+  --accent: #5b8def;
+  --accent-2: #3a6fd8;
+  --danger: #e05555;
+  --ok: #3ecf8e;
+  --warn: #e0a63c;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+.app-header .brand { font-weight: 700; letter-spacing: .3px; }
+.app-header .brand .tag {
+  font-size: 11px; font-weight: 600; margin-left: 8px; padding: 2px 8px;
+  border-radius: 999px; background: var(--panel-2); color: var(--muted);
+}
+.app-header .user { color: var(--muted); font-size: 14px; }
+
+.container { max-width: 860px; margin: 28px auto; padding: 0 18px; }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.task {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.task .body { flex: 1; min-width: 0; }
+.task h3 { margin: 0 0 4px; font-size: 16px; }
+.task .desc { color: var(--text); font-size: 14px; }
+.task .meta { margin-top: 8px; color: var(--muted); font-size: 12px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  padding: 3px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: .4px;
+}
+.badge.low     { background: #2b3446; color: var(--muted); }
+.badge.normal  { background: #223a5e; color: var(--accent); }
+.badge.high    { background: #4a3a1e; color: var(--warn); }
+.badge.urgent  { background: #4a2222; color: var(--danger); }
+
+.status { font-size: 12px; color: var(--muted); }
+
+label { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 4px; }
+input, textarea, select {
+  width: 100%; padding: 10px 12px; border-radius: 8px;
+  background: var(--panel-2); border: 1px solid var(--border); color: var(--text);
+  font: inherit;
+}
+textarea { min-height: 84px; resize: vertical; }
+
+button, .btn {
+  font: inherit; font-weight: 600; cursor: pointer;
+  padding: 9px 16px; border-radius: 8px; border: 1px solid var(--accent-2);
+  background: var(--accent); color: white;
+}
+button:hover, .btn:hover { background: var(--accent-2); }
+button.secondary { background: var(--panel-2); color: var(--text); border-color: var(--border); }
+button.danger { background: var(--danger); border-color: var(--danger); }
+
+.row { display: flex; gap: 10px; align-items: center; }
+.spacer { flex: 1; }
+.muted { color: var(--muted); }
+.error { color: var(--danger); font-size: 13px; margin-top: 8px; }
+
+.login-wrap { max-width: 360px; margin: 80px auto; }
+.hint { font-size: 12px; color: var(--muted); margin-top: 14px; }

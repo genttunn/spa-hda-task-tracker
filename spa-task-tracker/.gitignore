@@ -1,0 +1,17 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# databases (regenerated from shared/seed.sql via db.py)
+*.db
+
+# node / vite
+node_modules/
+dist/
+
+# attacker loot
+stolen.log
+
+# os
+.DS_Store

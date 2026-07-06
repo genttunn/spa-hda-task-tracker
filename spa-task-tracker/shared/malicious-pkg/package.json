@@ -1,0 +1,7 @@
+{
+  "name": "analytics-lite",
+  "version": "1.0.0",
+  "description": "Tiny analytics helper (this is the DEMO stand-in for a compromised npm dependency).",
+  "main": "index.js",
+  "type": "module"
+}

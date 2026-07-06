@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="login-wrap">
+  <div class="card">
+    <h2 style="margin-top: 0">Sign in</h2>
+    <form method="post" action="/login">
+      <label>Username</label>
+      <input name="username" value="alice" autocomplete="username" />
+      <label>Password</label>
+      <input name="password" type="password" value="alice123" autocomplete="current-password" />
+      {% if error %}<div class="error">{{ error }}</div>{% endif %}
+      <button style="margin-top: 16px; width: 100%">Sign in</button>
+    </form>
+    <p class="hint">Try admin/admin123 · alice/alice123 · bob/bob123</p>
+  </div>
+</div>
+{% endblock %}

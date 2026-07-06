@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="card">
+    <h2 style="margin-top: 0">New task</h2>
+    {# htmx posts the form and appends the returned fragment to the list.
+       hx-on::after-request resets the form. Still no hand-written JS file. #}
+    <form
+      hx-post="/tasks"
+      hx-target="#task-list"
+      hx-swap="beforeend"
+      hx-on::after-request="this.reset()"
+    >
+      <label>Title</label>
+      <input name="title" placeholder="Task title" />
+      <label>Description (supports rich text)</label>
+      <textarea name="description" placeholder="Description…"></textarea>
+      <button style="margin-top: 12px">Add task</button>
+    </form>
+  </div>
+
+  <div id="task-list">
+    {% for task in tasks %}
+      {% include "_task.html" %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
